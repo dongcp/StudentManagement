@@ -1,16 +1,31 @@
 package self.yue.studentmanagement.data;
 
-import self.yue.studentmanagement.utils.Comparator;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by yue on 3/30/17.
  */
 
-public class Student implements Comparator<Student> {
+public class Student {
+    @SerializedName("id")
     private String mId;
+    @SerializedName("class_id")
     private String mClassId;
+    @SerializedName("name")
     private String mName;
+    @SerializedName("average_score")
     private float mAverageScore;
+
+    public Student() {
+
+    }
+
+    public Student(String id, String classId, String name, float averageScore) {
+        mId = id;
+        mClassId = classId;
+        mName = name;
+        mAverageScore = averageScore;
+    }
 
     public String getId() {
         return mId;
@@ -49,11 +64,5 @@ public class Student implements Comparator<Student> {
         mClassId = student.getClassId();
         mName = student.getName();
         mAverageScore = student.getAverageScore();
-    }
-
-    @Override
-    public int compareTo(Student object) {
-
-        return 0;
     }
 }
